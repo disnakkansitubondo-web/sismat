@@ -1158,7 +1158,7 @@
                     </div>
                     
                     <div class="login-hint">
-                        <p>Kode keamanan default: <strong>1234</strong></p>
+                        <p>WebApp SISMAT <strong>v09.08.96.19.96</strong></p>
                     </div>
                     
                     <div class="login-security-notice">
@@ -1176,7 +1176,7 @@
                     </div>
                     
                     <div class="login-copyright">
-                        <p>&copy; 2024 SISMAT. All rights reserved.</p>
+                        <p>&copy; 2025 SISMAT. All rights reserved.</p>
                     </div>
                 </div>
             </div>
@@ -2147,11 +2147,11 @@
                                             <table class="table table-borderless">
                                                 <tr>
                                                     <th width="40%">Dibuat</th>
-                                                    <td>15 September 2024</td>
+                                                    <td>15 September 2025</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Diperbarui</th>
-                                                    <td>20 September 2024</td>
+                                                    <td>20 September 2025</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Kontak</th>
@@ -2173,7 +2173,7 @@
         </div>
         
         <div class="copyright">
-            &copy; 2024 SISMAT - Sistem Manajemen Surat. All rights reserved. | Developed by <a href="https://wa.me/6287865614222" class="whatsapp-link" target="_blank">Lentera Karya Situbondo</a>
+            &copy; 2025 SISMAT - Sistem Manajemen Surat. All rights reserved. | Developed by <a href="https://wa.me/6287865614222" class="whatsapp-link" target="_blank">Lentera Karya Situbondo</a>
         </div>
     </div>
     
@@ -2323,7 +2323,7 @@
         // Inisialisasi variabel global
         let suratMasukData = [];
         let suratKeluarData = [];
-        let currentSecurityCode = "1234"; // Kode default
+        let currentSecurityCode = "090896"; // Kode default
         let loginAttempts = 0;
         let isBlocked = false;
         let blockTimeout;
@@ -2423,10 +2423,10 @@
             const sampleSuratMasuk = [
                 {
                     id: 1,
-                    noAgenda: 'AGN-2024-001',
-                    noSurat: '001/DPRD/IX/2024',
-                    tanggalSurat: '2024-09-01',
-                    tanggalDiterima: '2024-09-02',
+                    noAgenda: 'AGN-2025-001',
+                    noSurat: '001/DPRD/IX/2025',
+                    tanggalSurat: '2025-09-01',
+                    tanggalDiterima: '2025-09-02',
                     pengirim: 'DPRD Kota Situbondo',
                     penerima: 'Bupati Situbondo',
                     kategori: 'Pemerintah',
@@ -2438,12 +2438,12 @@
                 },
                 {
                     id: 2,
-                    noAgenda: 'AGN-2024-002',
-                    noSurat: '002/DINSOS/IX/2024',
-                    tanggalSurat: '2024-09-03',
-                    tanggalDiterima: '2024-09-04',
-                    pengirim: 'Dinas Sosial Kota Situbondo',
-                    penerima: 'Sekretaris Daerah',
+                    noAgenda: 'AGN-2025-002',
+                    noSurat: '002/DINSOS/IX/2025',
+                    tanggalSurat: '2025-09-03',
+                    tanggalDiterima: '2025-09-04',
+                    pengirim: 'Contoh Dinas Sosial Kota Situbondo',
+                    penerima: 'Contoh Sekretaris Daerah',
                     kategori: 'OPD',
                     jenisSurat: 'Penting',
                     perihal: 'Laporan Bantuan Sosial',
@@ -2453,12 +2453,12 @@
                 },
                 {
                     id: 3,
-                    noAgenda: 'AGN-2024-003',
-                    noSurat: '003/PUSDATIN/IX/2024',
-                    tanggalSurat: '2024-09-05',
-                    tanggalDiterima: '2024-09-05',
-                    pengirim: 'Pusat Data dan Informatika',
-                    penerima: 'Kepala Dinas Kominfo',
+                    noAgenda: 'AGN-2025-003',
+                    noSurat: '003/PUSDATIN/IX/2025',
+                    tanggalSurat: '2025-09-05',
+                    tanggalDiterima: '2025-09-05',
+                    pengirim: 'Contoh Pusat Data dan Informatika',
+                    penerima: 'Contoh Kepala Dinas Kominfo',
                     kategori: 'Lembaga',
                     jenisSurat: 'Rahasia',
                     perihal: 'Permintaan Data Statistik',
@@ -2472,27 +2472,27 @@
             const sampleSuratKeluar = [
                 {
                     id: 1,
-                    noAgenda: 'AGK-2024-001',
-                    noSurat: '001/SEK/IX/2024',
-                    tanggalSurat: '2024-09-02',
-                    tanggalDikirim: '2024-09-03',
-                    pengirim: 'Sekretariat Daerah',
-                    tujuan: 'Seluruh OPD di Lingkungan Pemkot Situbondo',
+                    noAgenda: 'AGK-2025-001',
+                    noSurat: '001/SEK/IX/2025',
+                    tanggalSurat: '2025-09-02',
+                    tanggalDikirim: '2025-09-03',
+                    pengirim: 'Contoh Sekretariat Daerah',
+                    tujuan: 'Contoh Seluruh OPD di Lingkungan Pemkot Situbondo',
                     kategori: 'Pemerintah',
                     jenisSurat: 'Biasa',
                     perihal: 'Edaran Penyampaian Laporan',
                     prioritas: 'Sedang',
-                    keterangan: 'Harap disampaikan sebelum tanggal 10 September 2024',
+                    keterangan: 'Harap disampaikan sebelum tanggal 10 September 2025',
                     linkDrive: 'https://drive.google.com/file/d/456789/view'
                 },
                 {
                     id: 2,
-                    noAgenda: 'AGK-2024-002',
-                    noSurat: '002/DINKES/IX/2024',
-                    tanggalSurat: '2024-09-04',
-                    tanggalDikirim: '2024-09-05',
-                    pengirim: 'Dinas Kesehatan Kota Situbondo',
-                    tujuan: 'Puskesmas Se-Kota Situbondo',
+                    noAgenda: 'AGK-2025-002',
+                    noSurat: '002/DINKES/IX/2025',
+                    tanggalSurat: '2025-09-04',
+                    tanggalDikirim: '2025-09-05',
+                    pengirim: 'Contoh Dinas Kesehatan Kota Situbondo',
+                    tujuan: 'ContohPuskesmas Se-Kota Situbondo',
                     kategori: 'OPD',
                     jenisSurat: 'Penting',
                     perihal: 'Imunisasi Anak Usia Sekolah',
@@ -3041,7 +3041,7 @@
                 $('#jenisSuratKeluarSelect').val('Biasa');
                 $('#perihalKeluar').val('Edaran Penyampaian Laporan');
                 $('#prioritasKeluar').val('Sedang');
-                $('#keterangan').val('Harap disampaikan sebelum tanggal 10 September 2024');
+                $('#keterangan').val('Harap disampaikan sebelum tanggal 10 September 2025');
                 $('#linkDriveKeluar').val('https://drive.google.com/file/d/example/view');
             }
             
