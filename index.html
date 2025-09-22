@@ -2438,6 +2438,16 @@
                     renderSuratTable();
                 }
             });
+
+            // =================================================================
+            // == PENAMBAHAN FITUR BACKUP OTOMATIS SAAT REFRESH/KELUAR ==
+            // =================================================================
+            window.addEventListener('beforeunload', function(e) {
+                // Cek apakah pengguna sudah login (konten utama terlihat)
+                if (!document.getElementById('mainContent').classList.contains('app-content-unauthenticated')) {
+                     autoBackupOnExit();
+                }
+            });
         }
         
         // Show specific section
@@ -3950,6 +3960,12 @@
         // Logout
         function logout() {
             confirmAction('Apakah Anda yakin ingin keluar dari aplikasi?', () => {
+                
+                // =================================================================
+                // == PENAMBAHAN FITUR: PANGGIL FUNGSI BACKUP OTOMATIS SEBELUM KELUAR ==
+                // =================================================================
+                autoBackupOnExit();
+
                 // Show login modal
                 const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
                 loginModal.show();
@@ -4352,6 +4368,56 @@
             localStorage.setItem('suratData', JSON.stringify(suratData));
         }
         
+        // =================================================================
+        // == FUNGSI BARU UNTUK BACKUP OTOMATIS ==
+        // =================================================================
+        /**
+         * Creates a formatted timestamp string for filenames.
+         * @returns {string} Formatted timestamp (e.g., "20250922_143005")
+         */
+        function getFormattedTimestamp() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            return `${year}${month}${day}_${hours}${minutes}${seconds}`;
+        }
+
+        /**
+         * Handles the automatic backup process on exit, refresh, or logout.
+         */
+        function autoBackupOnExit() {
+            // Only backup if there is data to prevent empty downloads
+            if (suratData.length === 0) {
+                return;
+            }
+
+            const appName = localStorage.getItem('appName') || 'SISMAT';
+            const timestamp = getFormattedTimestamp();
+            const filename = `${appName}_AUTOBACKUP_${timestamp}.json`;
+
+            const backup = {
+                data: suratData,
+                metadata: {
+                    exportedAt: new Date().toISOString(),
+                    version: '2.0.0',
+                    totalRecords: suratData.length,
+                    notes: `Backup otomatis saat keluar/refresh pada ${formatDateTime(new Date())}`
+                }
+            };
+
+            const dataStr = JSON.stringify(backup, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', filename);
+            linkElement.click(); // This will trigger the download automatically
+        }
+
         // Format date
         function formatDate(dateString, format = 'DD/MM/YYYY') {
             if (!dateString) return '-';
